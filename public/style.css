@@ -1,0 +1,27 @@
+html{ 
+	overflow-y:scroll; 
+}
+ 		
+body{ 
+	padding-top:50px; 
+	background-color:rgba(204, 204, 204, 0.35); 
+}
+
+#food-list{ 
+	margin-bottom:30px; 
+}
+
+.alert-position{ 
+	position:fixed; right:10px;top:2px;
+}
+
+#logo-div{ 
+	margin-bottom:2px; 
+}
+
+#logo{ 
+	font-size: -webkit-xxx-large;
+	font-family: cursive;
+	color: #756565; 
+	margin-left: 15px;
+}

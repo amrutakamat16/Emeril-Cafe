@@ -1,0 +1,193 @@
+<!-- index.html -->
+<!doctype html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html ng-app="scotchFood">
+<head>
+<!-- META -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Optimize mobile viewport -->
+
+<title>Node/Angular Food App</title>
+
+<!-- SCROLLS -->
+<link rel="stylesheet"
+	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+<!-- load bootstrap -->
+<link rel="stylesheet" href="style.css">
+
+<!-- SPELLS -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<!-- load jquery -->
+<script
+	src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+<!-- load angular -->
+<script src="core.js"></script>
+
+</head>
+<!-- SET THE CONTROLLER AND GET ALL TODOS -->
+<body ng-controller="mainController">
+
+	<div class="container">
+		<div class="alert alert-success alert-position hide" role="alert">asfasdfasd</div>
+		<!-- HEADER AND TODO COUNT -->
+		<div id="logo-div">
+
+			<img height="100px" width="150px" src="img/cafe-sign.jpg"> <span
+				id="logo">Emeril Cafe</span>
+		</div>
+
+		<div class="panel panel-primary">
+			<div class="panel-heading">Menu Card</div>
+			<div class="panel-body">
+				<!-- TODO LIST -->
+				<div id="food-list" class="row">
+
+					<div class="col-sm-2">
+						<div class="form-group">
+
+							<!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
+
+							<input type="text" id="foodItem" name="food" class="form-control"
+								placeholder="Enter Food Item" ng-model="formData.foodItem">
+
+
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="form-group">
+
+							<div class="input-group">
+								<span class="input-group-addon">$</span> <input type="text"
+									class="form-control" id="price" name="price"
+									placeholder="Enter Price" ng-model="formData.price" />
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-1">
+						<div class="form-group">
+
+							<!-- createToDo() WILL CREATE NEW TODOS -->
+							<button type="submit" class="btn btn-primary btn-xs"
+								ng-click="createFood()">
+								<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+							</button>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<!-- LOOP OVER THE TODOS IN $scope.foods -->
+						<table class="table table-hover table-bordered table-striped">
+							<tr>
+								<th>Sr.</th>
+								<th>Item</th>
+								<th>Price</th>
+								<th>Action</th>
+							</tr>
+							<tr ng-repeat="food in foods">
+								<td>{{ $index + 1 }}</td>
+								<td>{{ food.foodItem }}</td>
+								<td>{{ food.price }}</td>
+								<td><button class="btn btn-danger btn-xs"
+										ng-click="deleteFood(food._id)">
+										<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+									</button></td>
+							</tr>
+						</table>
+
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title">Order</h3>
+			</div>
+			<div class="panel-body">
+				<!-- FORM TO CREATE TODOS -->
+				<div id="food-form" class="row">
+					<div class="col-sm-2">
+						<div class="form-group">
+							<select id="selectFood" name="food" class="form-control"
+								placeholder="Select Food Item">
+								<option selected disabled>Select</option>
+								<option ng-repeat="food in foods" value="{{food.price}}">
+									{{food.foodItem}}</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="form-group">
+
+							<div class="input-group">
+								<span class="input-group-addon">#</span> <input type="text"
+									class="form-control" id="quantity" name="quantity"
+									placeholder="Quantity" value="1" />
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-1">
+						<div class="form-group">
+
+							<!-- createToDo() WILL CREATE NEW TODOS -->
+							<button class="btn btn-primary btn-xs" id="cart"
+								ng-click="addToCart()">
+								<span class="glyphicon glyphicon-shopping-cart"
+									aria-hidden="true"></span>
+							</button>
+						</div>
+					</div>
+
+					<div class="col-sm-6">
+						<!-- LOOP OVER THE TODOS IN $scope.foods -->
+						<table id="cartTable"
+							class="table table-hover table-bordered table-striped">
+							<tr>
+
+								<th>Item</th>
+								<th>Price</th>
+								<th>#</th>
+								<th>Cost</th>
+								<th>Action</th>
+							</tr>
+
+						</table>
+						<div class="row hide">
+							<div class="col-sm-2">
+								<button id="bill" class="btn btn-primary">Bill</button>
+
+							</div>
+						</div>
+
+
+						<div class="row">
+							<div class="col-sm-8 bill-amount hide">
+								<label id="billPrice" name="costLabel">Bill: {{total}}</label>
+
+							</div>
+
+						</div>
+
+
+					</div>
+
+				</div>
+				<div class="row">
+					<div class="col-sm-8 col-sm-offset-2 text-center"></div>
+				</div>
+
+			</div>
+		</div>
+
+
+
+
+
+
+	</div>
+
+</body>
+</html>
