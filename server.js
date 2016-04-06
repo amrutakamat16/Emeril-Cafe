@@ -10,8 +10,7 @@
 
     // configuration =================
 
-    //mongoose.connect('mongodb://node:nodeuser@mongo.onmodulus.net:27017/uwO3mypu');     // connect to mongoDB database on modulus.io
-	mongoose.connect('mongodb://127.0.0.1:27017/test');
+    mongoose.connect('mongodb://127.0.0.1:27017/test');
 	
     app.use(express.static(__dirname + '/public'));                 // set the static files location /public/img will be /img for users
     app.use(morgan('dev'));                                         // log every request to the console
@@ -27,12 +26,6 @@
 		price	: {type: Number, min: 0}
     });
 	
-	
-	
-	
-	
-	// routes ======================================================================
-
     // api ---------------------------------------------------------------------
     // get all foods
     app.get('/api/foods', function(req, res) {
@@ -47,8 +40,6 @@
             res.json(foods); // return all foods in JSON format
         });
     });
-
-	// routes ======================================================================
 
     // api ---------------------------------------------------------------------
     // get all foods
@@ -109,7 +100,7 @@
         });
     });
 
-	   // application -------------------------------------------------------------
+    // application -------------------------------------------------------------
     app.get('*', function(req, res) {
         res.sendfile('./public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
     });
