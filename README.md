@@ -12,5 +12,5 @@ When items are added to the cart, an order summary is displayed on the right whi
 
 At the bottom we have the total bill generated for the order which includes the 7.5% tax.
 
-Required validations are added so that there are no errors while adding items to menu or cart.
+Required validations are added so that there are no errors while adding items to menu or cart. Error messages are displayed on top right corner of the display.
 
