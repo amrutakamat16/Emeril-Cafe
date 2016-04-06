@@ -1,0 +1,5 @@
+
+Feature description:
+
+Menu builder : Emeril can create menu and add or remove food items as needed from the menu card.
+The final menu card is displayed on the right side on the Menu Panel.
